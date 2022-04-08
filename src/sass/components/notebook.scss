@@ -1,0 +1,1003 @@
+#notebookContainer {
+  font-size: $type-size-5;
+
+  a,
+  button {
+    cursor: pointer;
+    transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+  }
+
+  #notebookNav,
+  #notebookList,
+  #notebookContent {
+    overflow-y: scroll;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar-toggle-btn {
+    opacity: 0.5;
+
+    svg {
+      height: $spacer;
+    }
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  #notebookNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: $spacer;
+    background-color: $sidebar-bg;
+    color: $sidebar-text-color;
+    font-size: $type-size-5;
+
+    .team-branding {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      font-weight: 600;
+
+      div {
+        flex-grow: 1;
+      }
+
+      img {
+        margin-right: $spacer/2;
+        padding: 2px;
+        background-color: $white;
+      }
+
+      .sidebar-toggle-btn {
+        flex-grow: 0;
+      }
+    }
+
+    #sidebarNav {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: $spacer * 1.5 0;
+        padding-left: 0.5rem;
+        list-style: none;
+
+        a {
+          display: block;
+          color: rgba($sidebar-text-color, 0.75);
+          text-decoration: none;
+
+          svg {
+            margin-right: $spacer/2;
+            opacity: 0.5;
+
+            &.caret {
+              margin-right: 0;
+            }
+          }
+
+          &.btn-new-note {
+            color: $sidebar-text-color;
+            text-align: left;
+            font-weight: 600;
+            font-size: $type-size-5;
+
+            svg {
+              opacity: 1;
+            }
+          }
+
+          &:hover {
+            color: $sidebar-text-color;
+
+            svg {
+              opacity: 1;
+            }
+          }
+        }
+
+        &.new-note {
+          padding-left: 0;
+        }
+
+        &.active {
+          margin-left: 0 - $spacer;
+          padding-left: 0;
+
+          a {
+            padding-left: $spacer;
+            border-left: solid 0.2rem $primary;
+            color: $sidebar-text-color;
+
+            svg {
+              // NOTE: 0.3rem calculated from 0.5rem for li padding-left minus the 0.2rem left border for the active item
+              margin-left: 0.3rem;
+              color: $sidebar-text-color;
+              opacity: 1;
+            }
+          }
+        }
+
+        #navTagsList {
+          margin: 0 0 0 1rem;
+          padding: 0;
+          font-size: $type-size-6;
+
+          li {
+            margin: $spacer/2 0;
+
+            span {
+              display: block;
+              color: rgba($sidebar-text-color, 0.75);
+              cursor: pointer;
+
+              svg {
+                margin-right: $spacer/2;
+                opacity: 0.5;
+              }
+
+              &:hover,
+              &.active {
+                color: $sidebar-text-color;
+
+                svg {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+
+        &#navTagsMenu {
+          margin-left: -1.25rem;
+        }
+      }
+    }
+
+    #sidebarUserMenu {
+      #userDropdownToggle {
+        color: rgba($sidebar-text-color, 0.5);
+
+        img.user-photo-icon-30 {
+          margin-right: $spacer/2;
+          background-color: $white;
+        }
+
+        div.user-photo-icon-30 {
+          display: inline-block;
+          margin-right: $spacer/2;
+        }
+
+        .user-name {
+          padding-right: $spacer/2;
+          color: $sidebar-text-color;
+        }
+
+        &:hover {
+          color: $sidebar-text-color;
+          text-decoration: none;
+        }
+      }
+
+      .dropdown-menu {
+        width: 100%;
+        font-size: $type-size-6;
+
+        svg {
+          margin-right: $spacer/2;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  #notebookList {
+    padding: 0;
+    background-color: $gray-200;
+
+    #sidebarSearchContainer {
+      padding: $spacer;
+      font-size: $type-size-6;
+
+      .search-icon svg {
+        position: absolute;
+        margin-top: 12px;
+        margin-left: $spacer/2;
+        color: $gray-500;
+      }
+
+      .clear-search-icon {
+        position: relative;
+        float: right;
+        margin-top: -29px;
+        margin-right: $spacer/2;
+        cursor: pointer;
+
+        &:hover {
+          color: $red;
+        }
+      }
+
+      input {
+        padding-left: $spacer * 2;
+
+        &::placeholder,
+        &::-ms-input-placeholder {
+          color: $text-muted-color;
+          opacity: 1; /* Firefox */
+        }
+      }
+    }
+
+    .tag-filter-msg {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 $spacer $spacer $spacer;
+      border-bottom: solid 1px $gray-300;
+      color: $text-color;
+      font-size: $type-size-6;
+      line-height: 1;
+
+      svg {
+        margin-right: $spacer/4;
+      }
+
+      .filter-tag-label {
+        margin-right: $spacer/4;
+        padding: $spacer/4 $spacer/2;
+        border: solid 1px $gray-300;
+        border-radius: $spacer/4;
+        background: $gray-300;
+      }
+
+      .dropdown {
+        display: inline;
+        margin-left: $spacer/4;
+        padding: $spacer/4 $spacer/2;
+        border: solid 1px $gray-400;
+        border-radius: $spacer/4;
+        color: $text-color;
+        font-size: $type-size-6;
+        line-height: 1;
+        cursor: pointer;
+
+        .dropdown-menu {
+          font-size: $type-size-6;
+
+          .dropdown-item {
+            padding: $spacer/2;
+
+            svg {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        &:hover {
+          background-color: $gray-100;
+        }
+      }
+
+      .clear-tag-filter {
+        margin-right: 0;
+        margin-left: $spacer/2;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+          color: $red;
+          opacity: 1;
+        }
+      }
+    }
+
+    #sidebarEntries {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+
+      .note-preview {
+        a {
+          display: block;
+          color: $gray-600;
+          text-decoration: none;
+
+          .content-container {
+            display: flex;
+            flex-direction: row;
+            padding: $spacer;
+            border-bottom: solid 1px $gray-300;
+
+            .metadata-container {
+              margin-right: $spacer/2;
+              padding-top: 3px;
+              color: $gray-500;
+              text-align: center;
+
+              .starred-status {
+                cursor: pointer;
+              }
+
+              img {
+                display: block;
+                margin-top: -3px;
+                margin-bottom: 9px;
+              }
+
+              svg {
+                display: block;
+                margin: 0 auto 9px auto;
+                height: $type-size-7;
+              }
+            }
+
+            .content {
+              flex-grow: 1;
+
+              .byline {
+                margin-bottom: $spacer/2;
+                color: $gray-600;
+                font-size: $type-size-7;
+                line-height: 1;
+
+                .author {
+                  font-weight: 400;
+                }
+
+                .note-date {
+                  float: right;
+                  font-weight: 400;
+                }
+              }
+
+              h3 {
+                margin: 0;
+                margin-bottom: $spacer/2;
+                max-width: 100%;
+                color: $gray-900;
+                font-weight: 400;
+                font-size: $type-size-5;
+                line-height: 1.2;
+              }
+
+              .post-snippet {
+                position: relative;
+                overflow: hidden;
+                margin-bottom: $spacer/2;
+                max-height: (1.3em * 2);
+                word-wrap: break-word;
+                word-break: break-all;
+                word-break: break-word; // Use the non-standard 'break-word' for Safari
+                hyphens: auto;
+                font-size: $type-size-6;
+                line-height: 1.3em;
+                overflow-wrap: break-word;
+              }
+
+              ul.tags {
+                margin-top: 0;
+
+                li.tag {
+                  margin-right: $spacer/2;
+                  margin-bottom: 0;
+                  padding: 0 $spacer/2;
+                  border-radius: $spacer/4;
+                  background-color: $gray-300;
+                  font-size: $type-size-7;
+                }
+              }
+            }
+          }
+        }
+
+        &.active-note {
+          border-left: solid $spacer * 0.3 $primary;
+          background: $gray-100;
+
+          .content-container {
+            padding-left: $spacer * 0.7;
+
+            .content ul.tags li.tag {
+              background-color: $gray-200;
+            }
+          }
+
+          &:hover {
+            background: $gray-100;
+            cursor: default;
+
+            .content-container .content ul.tags li.tag {
+              background-color: $gray-200;
+            }
+          }
+        }
+
+        &:hover {
+          background-color: rgba($primary, 0.2);
+
+          .content-container .content ul.tags li.tag {
+            background-color: $gray-400;
+          }
+        }
+      }
+
+      #emptyNotebookMsg,
+      #noteCount {
+        padding: $spacer;
+        color: $gray-600;
+        text-align: center;
+        font-size: $type-size-7;
+      }
+    }
+  }
+
+  #notebookContent {
+    padding: $spacer $spacer * 2;
+
+    .sidebar-toggle-btn {
+      position: absolute;
+      top: $spacer;
+      left: $spacer;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .notebook-note {
+      margin: 0 auto;
+      max-width: 800px;
+      height: 100vh;
+      font-size: $type-size-4;
+
+      .note-header {
+        flex-grow: 0;
+      }
+
+      .note-metadata {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 40px; // to prevent jump when publish button appears after first auto-save
+        color: $text-muted-color;
+        font-size: $type-size-6;
+
+        .pub-date {
+          .pending-changes {
+            margin-left: $spacer/2;
+            opacity: 0.75;
+          }
+        }
+
+        .author-byline {
+          // font-weight: 400;
+
+          .username {
+            font-weight: 400;
+          }
+
+          .pending-changes {
+            margin-left: $spacer/2;
+            opacity: 0.75;
+          }
+        }
+
+        ul.note-controls {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          li {
+            display: inline;
+            margin: 0 0 0 $spacer;
+            padding: 0;
+            cursor: pointer;
+
+            span.counter {
+              margin-right: $spacer/4;
+              text-align: right;
+            }
+
+            &.inactive {
+              opacity: 0.5;
+              cursor: default;
+
+              &:hover {
+                color: $text-color;
+              }
+            }
+
+            &.delete:hover {
+              color: $red;
+            }
+
+            &:hover {
+              color: $link-color;
+            }
+          }
+
+          .share-action-button {
+            border-width: 1px;
+            font-size: $type-size-6;
+
+            svg {
+              margin-right: $spacer/2;
+            }
+
+            &.published {
+              border-color: $primary;
+              background-color: $white;
+              color: $primary;
+              cursor: default;
+            }
+
+            &.btn-default {
+              border-color: rgba($text-muted-color, 0.33);
+              background-color: $white;
+              color: $text-muted-color;
+
+              &:hover {
+                border-color: $primary;
+                background-color: $primary;
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+
+      .DraftEditor-root {
+        flex-grow: 1;
+      }
+
+      .note-title,
+      .title-h1 {
+        margin-top: $spacer;
+        margin-bottom: $spacer;
+        color: $text-header-color;
+        font-weight: 600;
+        font-size: $type-size-0 * 1.125;
+        line-height: 1.2;
+
+        textarea {
+          display: inline;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          outline: none;
+          border: none;
+          box-shadow: none;
+          line-height: 1.2;
+          resize: none;
+        }
+
+        .hidden-div {
+          // used for resizing the text field note title
+          position: absolute;
+          left: -9999px;
+          visibility: hidden;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          overflow-wrap: break-word; /* future version of deprecated 'word-wrap' */
+        }
+      }
+
+      #editor {
+        $delete-button-size: $spacer * 2.25;
+
+        h1,
+        h2 {
+          color: $text-header-color;
+        }
+
+        h1 {
+          margin-top: $spacer;
+          font-weight: 600;
+          font-size: $type-size-1;
+        }
+
+        h2 {
+          margin-top: $spacer;
+          font-weight: 600;
+          font-size: $type-size-3;
+        }
+
+        a:hover {
+          color: $link-color;
+        }
+
+        .public-DraftEditor-content div {
+          div div {
+            // paragraph with no other block-level styling
+            margin-bottom: $spacer;
+          }
+        }
+
+        li {
+          margin-bottom: 0;
+          // margin-left: 0;
+        }
+
+        blockquote {
+          padding-left: $spacer;
+          border-left: solid 4px $gray-300;
+          color: $gray-600;
+        }
+
+        code,
+        pre {
+          padding: $spacer/2;
+          border: solid 1px $gray-200;
+          border-radius: $spacer/4;
+          background-color: rgba($gray-100, 0.5);
+          font-size: $type-size-5;
+          font-family: $font-family-monospace;
+
+          .public-DraftStyleDefault-block {
+            margin-bottom: 0;
+          }
+
+          pre {
+            margin: 0;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+          }
+        }
+
+        /*
+
+        Image controls
+
+        */
+        .img-container {
+          position: relative;
+
+          .image-message {
+            position: absolute;
+            top: 50%;
+            margin-bottom: 0;
+            width: 100%;
+            color: $white;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+
+            span {
+              padding: $spacer;
+              border-radius: 8px;
+              background: rgba($gray-900, 0.5);
+              box-shadow: 0 4px 28px -8px $gray-900;
+            }
+          }
+
+          .image-delete-button {
+            visibility: hidden;
+          }
+
+          &:hover {
+            .image-delete-button {
+              visibility: visible;
+            }
+          }
+        }
+
+        .image-delete-button {
+          position: relative;
+          top: 0 - $delete-button-size * 1.5;
+          right: $delete-button-size/2;
+          display: flex;
+          float: right;
+          align-items: center;
+          justify-content: center;
+          width: $delete-button-size;
+          height: $delete-button-size;
+          // margin-bottom: 0 !important;
+          border: solid 2px $white;
+          border-radius: $delete-button-size * 2;
+          background: $link-color;
+          box-shadow: 0 4px 28px -8px $gray-900;
+          color: $white;
+          cursor: pointer;
+
+          svg {
+            width: $spacer;
+            height: $spacer;
+          }
+
+          &:hover {
+            background: $red;
+          }
+        }
+
+        &.read-only {
+          // NOTE: There's probably a better way to hide the image delete button for read-only views.
+          .image-delete-button {
+            display: none;
+          }
+        }
+      }
+    }
+
+    #emptyNotebookNoteMessage {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+
+      .sidebar-toggle-btn svg {
+        width: $type-size-5;
+        height: $type-size-5;
+      }
+
+      svg {
+        width: $type-size-0;
+        height: $type-size-0;
+        color: $text-muted-color;
+      }
+    }
+
+    &.hidden-sidebars {
+      width: 100%;
+    }
+  }
+}
+
+// NOTE: move to new file
+ul.reactions {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  color: $gray-600;
+  list-style: none;
+  font-size: $type-size-6;
+
+  $reaction-size: $spacer * 1.5;
+
+  li.reaction,
+  li.plus {
+    display: flex;
+    align-items: center;
+    margin-right: $spacer/2;
+    padding: $spacer/4 $spacer/2;
+    border: solid 1px $gray-300;
+    border-radius: $reaction-size;
+    line-height: 1;
+    cursor: pointer;
+
+    img {
+      margin-right: $spacer/2;
+      width: $reaction-size;
+      height: $reaction-size;
+    }
+
+    &.yours {
+      border-color: $primary;
+      color: $primary;
+    }
+
+    &:hover {
+      border-color: $primary;
+      background-color: rgba($primary, 0.1);
+
+      &.yours {
+        border-color: $red;
+        background-color: rgba($red, 0.1);
+        color: $red;
+      }
+    }
+  }
+
+  li.plus {
+    .add-reaction-icon {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      height: $reaction-size;
+      color: $text-muted-color;
+
+      svg {
+        width: $reaction-size * 0.75;
+        height: $reaction-size * 0.75;
+
+        &.plus {
+          margin-left: $spacer/4;
+          width: $reaction-size * 0.5;
+          height: $reaction-size * 0.5;
+        }
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  .popover {
+    .popover-body {
+      color: $text-muted-color;
+    }
+  }
+  // add reaction popup
+  .add-reaction-popover {
+    box-shadow: 0 $spacer/4 $spacer $gray-300;
+    pointer-events: auto !important;
+
+    ul.reaction-options {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding: $spacer/2;
+        border-radius: $spacer/4;
+        cursor: pointer;
+
+        img {
+          margin-right: 0;
+          width: $spacer * 2;
+          height: $spacer * 2;
+        }
+
+        &:hover {
+          background-color: rgba($primary, 0.1);
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &:hover {
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #notebookContainer {
+    #notebookNav,
+    #notebookList,
+    #notebookContent {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    #notebookNav {
+      font-size: $type-size-4;
+
+      .team-branding {
+        text-align: center;
+      }
+
+      #sidebarNav li {
+        a.btn-new-note {
+          font-size: $type-size-4;
+        }
+      }
+    }
+
+    #notebookList {
+      #sidebarSearchContainer {
+        position: relative;
+      }
+    }
+
+    #notebookContent {
+      padding: $spacer;
+
+      .notebook-note {
+        margin-top: 40px;
+
+        .note-metadata {
+          align-items: normal;
+          flex-direction: column-reverse;
+
+          .user_passport {
+            margin: $spacer 0;
+          }
+
+          .pub-date {
+            margin-top: $spacer;
+            width: 100%;
+            text-align: left;
+          }
+
+          .note-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            #mobileNavBackBtn {
+              flex-grow: 1;
+              margin: 0 !important;
+
+              svg {
+                width: $type-size-2;
+                height: $type-size-2;
+                color: $gray-600;
+              }
+            }
+
+            #commentCount,
+            #reactionCount {
+              display: none;
+            }
+
+            #publishToggle {
+              .btn {
+                padding: $spacer/4 $spacer/2;
+              }
+            }
+          }
+        }
+
+        .note-title,
+        .title-h1 {
+          margin-top: $spacer/2;
+          font-size: $type-size-0;
+        }
+
+        #editor {
+          h1 {
+            font-size: $type-size-1;
+          }
+
+          h2 {
+            font-size: $type-size-2;
+          }
+        }
+
+        &.read-only {
+          // hide mobile toolbar on notes that aren't yours
+          margin-top: 0;
+        }
+      }
+    }
+
+    #mobileNavHeader {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+
+      #mobileNavBackBtn {
+        flex-grow: 0;
+        padding: $spacer;
+
+        svg {
+          width: $type-size-2;
+          height: $type-size-2;
+          color: $gray-600;
+        }
+      }
+
+      h4 {
+        flex-grow: 1;
+        margin-right: $spacer * 2 + $type-size-2;
+        padding-top: $spacer;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        font-size: $type-size-2;
+      }
+    }
+  }
+}

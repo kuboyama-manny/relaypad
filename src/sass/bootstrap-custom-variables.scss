@@ -1,0 +1,232 @@
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $font-family-serif: "Source Serif Pro", Georgia, "Times New Roman", Times, serif; ** NOT CURRENTLY LOADING SANS SERIF PRO **
+$font-family-monospace: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+$headings-font-weight: 600;
+
+$blue-dark: #0f264d;
+$blue-light: #69c;
+$red: #d3444f;
+
+$text-color: #495057; // $gray-700
+$text-header-color: #212529; // $gray-900
+$text-muted-color: #adb5bd; // $gray-500
+
+// Bootstrap color overide
+$blue: $blue-light;
+$body-color: $text-color;
+
+// Theme Colors
+$sidebar-bg: #2d3040;
+$sidebar-text-color: #fff;
+
+// 1.125 Major Second type scale
+// NOTE: For the note headline, we're also using a "$type-size-0 * 1.125" value
+$type-size-0: 2.027rem; // 29px (based on 16px base height)
+$type-size-1: 1.602rem; // 26px
+$type-size-2: 1.424rem; // 23px
+$type-size-3: 1.266rem; // 20px
+$type-size-4: 1.125rem; // 18px
+$type-size-5: 1rem; // 16px
+$type-size-6: 0.889rem; // 14px
+$type-size-7: 0.79rem; // 13px
+
+// From Bootstrap 3
+.img-circle {
+  border-radius: 100%;
+}
+
+.center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+$screen-sm: 768px;
+$screen-sm-max: 990px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+/* Misc global stuff that should probably go somewhere better */
+button svg,
+.btn svg {
+  margin-right: 0.5rem;
+}
+
+/* Loader modal */
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+
+  svg {
+    color: $blue-light;
+  }
+
+  h4 {
+    font-weight: 400;
+    margin-top: 1rem;
+    color: $text-muted-color;
+  }
+}
+
+// /*
+//
+// Old Colors
+//
+// $blue-dark: #2c2d7b;
+// $blue-light: #2785cb;
+// $red: #d3444f;
+//
+// $gray-base: #000;
+// $gray-darker: #222221;
+// $gray-dark: #333232;
+// $gray: #555453;
+// $gray-lightish: #666564;
+// $gray-light: #777675;
+// $gray-lighter: #959392;
+// $gray-lightest: #eeece9;
+// $white: #fff;
+//
+// $brand-primary: $blue-light;
+// $brand-primary-darker: $blue-dark;
+// $text-color: $gray;
+// $headings-color: $gray-dark;
+// $ui-gray: $gray-lightest;
+//
+// $brand-success:         #53c03e;
+// $brand-info:            #70DAF1;
+// $brand-warning:         #da9846;
+// $brand-danger:          $red;
+//
+// */
+//
+// /*
+//
+// Colors
+//
+// */
+// $blue-dark: #0f264d;
+// $blue-dark-desaturated: #2d3040;
+// $blue-light: #69c;
+// $red: #d3444f;
+//
+// $gray-base: #000;
+// $gray-darker: #222221;
+// $gray-dark: #333232;
+// $gray: #555453;
+// $gray-lightish: #666564;
+// $gray-light: #777675;
+// $gray-lighter: #959392;
+// $gray-lightest: #eeece9;
+// $white: #fff;
+//
+// $brand-primary: $blue-light;
+// $brand-primary-darker: $blue-dark;
+// $text-color: $gray;
+// $headings-color: $gray-dark;
+// $ui-gray: $gray-lightest;
+//
+// $brand-success:         #53c03e;
+// $brand-info:            #70daf1;
+// $brand-warning:         #da9846;
+// $brand-danger:          $red;
+//
+// /*
+//
+// Typography
+//
+// */
+// $font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// // $font-family-serif: "Source Serif Pro", Georgia, "Times New Roman", Times, serif; ** NOT CURRENTLY LOADING SANS SERIF PRO **
+// $font-family-monospace: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New", monospace;
+// $line-height-base: 1.4;
+// $font-size-base: 16px;
+// $icon-font-path: "/static/fonts/bootstrap/";
+//
+// // // 1.250 Major Third type scale
+// // $type-size-0: 48px; // 3.051em (on 16px base height)
+// // $type-size-1: 39px; // 2.441em
+// // $type-size-2: 31px; // 1.953em
+// // $type-size-3: 25px; // 1.563em
+// // $type-size-4: 20px; // 1.25em
+// // $type-size-5: 16px; // 1em
+// // $type-size-6: 13px; // 0.8em
+// // $type-size-7: 10px; // 0.64em
+//
+// // 1.125 Major Second type scale
+// $type-size-0: 2.027rem; // 29px (on 16px base height)
+// $type-size-1: 1.602rem; // 26px
+// $type-size-2: 1.424rem; // 23px
+// $type-size-3: 1.266rem; // 20px
+// $type-size-4: 1.125rem; // 18px
+// $type-size-5: 1rem; // 16px
+// $type-size-6: 0.889rem; // 14px
+// $type-size-7: 0.79rem; // 13px
+//
+// /*
+//
+// Links
+//
+// */
+// $link-color: $brand-primary;
+// $link-hover-decoration: none;
+// $link-hover-color: $blue-dark;
+//
+// /*
+//
+// Buttons
+//
+// */
+// $btn-font-weight: 400;
+// $btn-primary-border: darken($brand-primary, 10%);
+//
+// /*
+//
+// Forms
+//
+// */
+// $input-border-focus: rgba($gray-light, 0.5);
+//
+// /*
+//
+// Deprecated from Bootstrap 3
+// TODO: Remove all these from project
+//
+// */
+//
+// $padding-base-vertical:     6px;
+// $padding-base-horizontal:   12px;
+//
+// $padding-large-vertical:    10px;
+// $padding-large-horizontal:  16px;
+//
+// $padding-small-vertical:    5px;
+// $padding-small-horizontal:  10px;
+//
+// $padding-xs-vertical:       1px;
+// $padding-xs-horizontal:     5px;
+//
+// $line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+// $line-height-small:         1.5;
+//
+// $border-radius-base:        4px;
+// $border-radius-large:       6px;
+// $border-radius-small:       3px;
+// $btn-border-radius-large:  $border-radius-large;
+//
+// $screen-sm: 768px;
+// $screen-sm-max: 990px;
+// $screen-md: 992px;
+// $screen-lg: 1200px;
+//
+// //** Unit-less `line-height` for use in components like buttons.
+// $line-height-base:        1.428571429 !default; // 20/14
+// //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+// $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+//
+// $btn-border-radius-small: $btn-border-radius-sm;

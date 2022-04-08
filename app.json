@@ -1,0 +1,23 @@
+{
+	"name": "relaypad-web",
+	"scripts": {},
+	"env": {
+		"REACT_APP_API_ROOT": {
+			"required": true
+		},
+		"REACT_APP_AUTH0_CLIENT_ID": {
+			"required": true
+		},
+		"REACT_APP_AUTH0_DOMAIN": {
+			"required": true
+		},
+		"REACT_APP_AUTH0_CALLBACK_URL": {
+			"required": true
+		}
+	},
+	"formation": {},
+	"buildpacks": [{
+		"url": "https://github.com/mars/create-react-app-buildpack.git"
+	}],
+	"stack": "heroku-16"
+}

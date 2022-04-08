@@ -1,0 +1,55 @@
+#slackRoadblock {
+  .content {
+    text-align: center;
+
+    img.logo {
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      margin: 0 auto 1rem auto;
+      color: $blue-dark;
+      font-weight: 600;
+    }
+
+    .hero-image,
+    .btn {
+      margin-top: 3rem;
+    }
+
+    .btn {
+      margin-bottom: 1rem;
+      box-shadow: 0 5px 15px rgba($black, 0.1);
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    p.learn-more a {
+      font-weight: 400;
+      font-size: $type-size-5;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #slackRoadblock {
+    .content {
+      .btn {
+        margin-top: 1.5rem;
+      }
+
+      .hero-image {
+        max-width: 100%;
+        margin-top: 0;
+      }
+
+      p {
+        &.learn-more {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

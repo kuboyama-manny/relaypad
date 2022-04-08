@@ -1,0 +1,181 @@
+.post ul.tags,
+ul.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    margin: 0 $spacer $spacer/2 0;
+  }
+
+  .label,
+  a.label {
+    border-radius: $spacer/4;
+    background: $gray-100;
+    cursor: pointer;
+
+    .tag-count {
+      margin-left: $spacer/2;
+      font-size: 0.9;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      background: $gray-300;
+    }
+  }
+
+  li.tag-add {
+    a {
+      padding: 2px;
+      border: none;
+      border-radius: 50px;
+      background-color: rgba($gray-400, 0.5);
+      color: $white;
+      font-size: 0.7em;
+    }
+  }
+
+  .tag-add a:hover {
+    background-color: $gray-400;
+  }
+}
+
+#noteTagsContainer {
+  // for notebook
+  margin: $grid-gutter-width 0;
+
+  #tagContainer {
+    position: relative;
+    display: inline-block;
+  }
+
+  li.label {
+    padding: $spacer/4 $spacer/2;
+    font-size: $type-size-6;
+
+    svg {
+      margin-left: $spacer/2;
+      color: $gray-400;
+      cursor: pointer;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    &:hover {
+      background-color: $gray-100;
+    }
+  }
+
+  #newTags {
+    color: $gray-400;
+    font-size: $type-size-6;
+
+    input {
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: $gray-800;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.label {
+      margin-bottom: 0;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      background-color: rgba($gray-300, 0.3);
+    }
+
+    &:hover {
+      color: $link-color;
+
+      input {
+        color: $gray-800;
+      }
+    }
+
+    &.linky {
+      cursor: pointer;
+    }
+  }
+}
+
+#tagSuggestions {
+  position: absolute;
+  bottom: 22px;
+  z-index: $zindex-popover;
+  padding: 0;
+  min-width: 144px;
+  border: solid 1px $gray-200;
+  border-radius: $spacer/4;
+  background-color: $white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  color: $text-muted;
+  list-style: none;
+  font-size: $type-size-6;
+
+  .tooltip {
+    white-space: pre;
+  }
+
+  li {
+    padding:
+      $spacer/2 $spacer
+      $spacer/2 $spacer/2;
+    font-weight: 400;
+
+    .slack_tag {
+      margin-left: 25px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      border-radius: 0 0 5px 5px;
+    }
+
+    &:first-child {
+      border-radius: 5px 5px 0 0;
+    }
+  }
+
+  li.selected,
+  li:hover {
+    background-color: rgba($primary, 0.2);
+    color: $gray-800;
+    cursor: pointer;
+  }
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-right: solid 10px transparent;
+    border-top: solid 10px $gray-200;
+    border-left: solid 10px transparent;
+    content: " ";
+    pointer-events: none;
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-right: solid 8px transparent;
+    border-top: solid 8px $white;
+    border-left: solid 8px transparent;
+    content: " ";
+    pointer-events: none;
+  }
+}

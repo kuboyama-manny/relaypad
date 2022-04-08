@@ -1,0 +1,19 @@
+@import "./bootstrap-custom-variables.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+// @import "./bootstrap-custom.scss";
+@import "../node_modules/draft-js/dist/Draft.css";
+
+/* App components */
+@import "./components/alerts.scss";
+@import "./components/notebook.scss";
+@import "./components/comments.scss";
+@import "./components/slack-roadblock.scss";
+@import "./components/slack-connector.scss";
+@import "./components/static-page.scss";
+@import "./components/tags.scss";
+@import "./components/user-passport.scss";
+@import "./components/editor-toolbar.scss";
+@import "./components/app-fail.scss";
+
+/* TODO: delete these stylesheets from the "news" release */
+// @import "./components/notifications.scss";

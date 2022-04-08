@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# script/setup: Set up application and environment for the first time, or set it
+#               back to the initial first unused state. Assumes OS X for development.
+
+set -e
+
+# Output usage
+if [ "$1" = "-h" ]; then
+    echo "usage: script/setup"
+    exit 1;
+fi
+
+cd "$(dirname "$0")/.."
+
+# Confirm prerequisites installed.
+if ! type "node" > /dev/null; then
+  echo "==> Looks like node is missing, install it first."
+  exit 1;
+fi
+
+if ! type "heroku" > /dev/null; then
+  echo "==> Looks like Heroku toolbelt is missing, installing it..."
+  wget -O- https://toolbelt.heroku.com/install.sh | sh
+  heroku login
+fi
+
+if [ ! -f .env ]; then
+  echo "==> Please create and customize a local '.env' file with your personal settings."
+  echo "==> This is a local file not in version control for security reasons."
+  echo "==> Displaying contents of template env..."
+  cat env_file_template
+  exit 1;
+fi
+
+if [ ! -f node_modules ]; then
+  echo "==> Installing npm dependencies..."
+  npm install
+fi
+
+# Setup staging heroku git remotes
+if [ -z "$(git remote -v | grep staging)" ]; then
+  echo "==> Setting up heroku git remotes..."
+  heroku git:remote -a relaypad-staging-web -r staging
+fi
+
+# Setup production heroku git remotes
+if [ -z "$(git remote -v | grep production)" ]; then
+  echo "==> Setting up production heroku git remotes..."
+  heroku git:remote -a relaypad-web -r production
+fi
+
+echo "==> Environment configured, run 'script/server'"

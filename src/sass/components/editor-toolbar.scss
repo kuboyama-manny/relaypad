@@ -1,0 +1,172 @@
+.toolbar {
+  position: fixed;
+  z-index: 1070;
+  height: 35px;
+  cursor: default;
+
+  .toolbar-icons,
+  .toolbar-link-field {
+    position: absolute;
+    z-index: 1070;
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid $gray-900;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, $gray-800 0%, $gray-900 100%);
+    box-shadow: 0 4px 28px -8px $gray-800;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      margin-bottom: 0;
+    }
+  }
+
+  .toolbar-icons .toolbar-icon {
+    display: flex;
+    padding: 0 6px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+    color: $gray-400;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      height: 16px;
+      color: $gray-400;
+    }
+
+    &.active {
+      color: $white;
+
+      svg {
+        color: $white;
+      }
+    }
+  }
+
+  .toolbar-link-field {
+    input {
+      font-size: 16px;
+      width: 275px;
+      padding: 12px 6px;
+      color: $white;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    svg {
+      margin: 0 6px;
+      color: $gray-400;
+      cursor: pointer;
+
+      &:hover {
+        color: $gray-100;
+      }
+    }
+  }
+
+  &.side {
+    position: absolute;
+    margin-left: 25px;
+    margin-top: -32px;
+  }
+
+  &.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    border-top: solid 1px $gray-100;
+    box-shadow: 0 0 10px rgba($gray-900, 0.1);
+
+    .toolbar-icons,
+    .toolbar-link-field {
+      width: 100%;
+      padding: 0 20px;
+      border: none;
+      border-bottom: 1px solid $gray-100;
+      border-radius: 0;
+      background: lighten($gray-100, 5%);
+      box-shadow: none;
+
+      .toolbar-icon {
+        height: 40px;
+
+        &.active {
+          color: $gray-900;
+
+          svg {
+            color: $gray-900;
+          }
+        }
+      }
+    }
+  }
+}
+
+.toolbar .toolbar-icons li.toolbar-spacer {
+  width: 15px;
+  cursor: default;
+}
+
+.toolbar .toolbar-icons .toolbar-icon.active svg:hover,
+.toolbar .toolbar-icons .toolbar-icon.active:hover,
+.toolbar .toolbar-icons .toolbar-icon:hover,
+.toolbar .toolbar-icons .toolbar-icon:hover svg {
+  color: $link-color;
+}
+
+.toolbar.mobile .toolbar-icons .toolbar-icon.active svg:hover,
+.toolbar.mobile .toolbar-icons .toolbar-icon.active:hover,
+.toolbar.mobile .toolbar-icons .toolbar-icon:hover,
+.toolbar.mobile .toolbar-icons .toolbar-icon:hover svg {
+  color: $gray-300;
+}
+
+.toolbar.inline .toolbar-icons::after,
+.toolbar.inline .toolbar-link-field::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  content: "";
+  border-top: 5px solid $gray-900;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+
+.toolbar.side .toolbar-icons::after {
+  position: absolute;
+  top: 12px;
+  left: -1px;
+  margin-left: -5px;
+  content: "";
+  border-top: 5px solid transparent;
+  border-right: 5px solid $gray-900;
+  border-bottom: 5px solid transparent;
+}
+
+.side-toolbar {
+  position: absolute;
+  z-index: 1070;
+  margin-left: -35px;
+
+  #plusButton {
+    font-size: 26px;
+    margin-right: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+    color: $gray-300;
+
+    &:hover {
+      color: $gray-400;
+    }
+  }
+}
